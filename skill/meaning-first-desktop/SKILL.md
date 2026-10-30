@@ -38,7 +38,7 @@ Call `show_widget` with ONLY this shape. Never write HTML/CSS for the card; the 
 ```html
 <p class=mf-ph>…</p><script type=text/mf>
 ….mf DSL…
-</script><script>import("https://cdn.jsdelivr.net/gh/vaskarvelas/mf-widget@cbe0cc2/mf.js")</script>
+</script><script>import("https://cdn.jsdelivr.net/gh/vaskarvelas/mf-widget@cfd039e/mf.js")</script>
 ```
 
 Visible placeholder + script-driven load are required: a static `<script src>`, or no visible content before load, renders empty in Claude Desktop (tested 2026-10-30). `import()` of the IIFE works (CORS `*`); the 7-char SHA resolves on jsDelivr. No `read_me` call for DSL cards; call it (module `diagram`) only before a raw `<svg>` diagram. Long, shareable or multi-page output → `Artifact` (load `artifact-design` first).
@@ -102,4 +102,4 @@ Real control (prevalence, threshold)? Add `<input type="range" step="1">` lines 
 
 ## Renderer source
 
-`mf.js` at the root of this repo (`vaskarvelas/mf-widget`, cloned at `~/dev/mf-widget`). After changing it: push, then bump `cbe0cc2` above to the new short commit.
+`mf.js` at the root of this repo (`vaskarvelas/mf-widget`, cloned at `~/dev/mf-widget`). After changing it: push, then bump `cfd039e` above to the new short commit.
