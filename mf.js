@@ -31,5 +31,6 @@ function mf(src){
 }
 if(!document.getElementById('mf-css')){const st=document.createElement('style');st.id='mf-css';st.textContent=C;document.head.appendChild(st)}
 document.querySelectorAll('script[type="text/mf"]').forEach(n=>{const d=document.createElement('div');d.className='mf';d.innerHTML=mf(n.textContent);n.replaceWith(d)});
+document.querySelectorAll('.mf-ph').forEach(n=>n.remove());
 window.mf=mf;
 })();
