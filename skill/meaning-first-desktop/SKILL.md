@@ -25,8 +25,8 @@ Pick the cheapest mode that carries the meaning. Never say the same thing in car
 
 Built for dyslexia/ADHD readers: decoding words is costly and working memory is small, so the drawing carries the idea and words only add what a drawing cannot hold.
 
-1. **Drawing:** one illustrative `<svg>` via `show_widget` (call `read_me` module `diagram` first). It shows one idea, has at most 5 labels of 5 words or fewer, uses 2 color ramps (warm = problem, cool = fix) and follows the subject's real shape, not boxes.
-2. **Card:** a DSL card right after it, containing `h1` (the answer), then at most 3 colored lines for the terms, numbers and negations the drawing cannot show, then `details:` for everything else.
+1. **Drawing:** a `compare:` or `scene:` line inside the card (see glyphs below), so there is one widget, no `read_me` call and the same picture every time. It shows one idea, uses at most 5 steps with captions of 5 words or fewer, and marks tone with `bad`/`good` or `!`/`+`. Hand-write an illustrative `<svg>` (after `read_me` module `diagram`) only when no glyph fits.
+2. **Words:** in the same card, put `h1` (the answer) above the drawing, then at most 3 colored lines for the terms, numbers and negations the drawing cannot show, then `details:` for everything else.
 3. **No redundancy:** never repeat in the card what the drawing already shows. Saying it twice adds load instead of helping.
 
 Pick by content: a mechanism or process gets picture-first; numbers, rules or lists get a card alone; yes/no gets text. Evidence: BDA style guide 2023, Mayer's multimedia principles (coherence, redundancy) and dual coding. Bionic reading showed no speed gain (n=2,074). ADHD-specific evidence is thin, so treat this layout as a hypothesis.
@@ -55,6 +55,9 @@ Visible placeholder + script-driven load are required: a static `<script src>`, 
 | `cards:` + indented `- title \| body` (extra indented lines append) | card grid |
 | `band: 16.7 label A \| 83.3 label B` | proportional bar + left/right legend |
 | `flow: A -> B -> C` | box-and-arrow diagram |
+| `scene: glyph[:arg] caption -> … -> outcome` | horizontal picture flow, ≤ 5 steps |
+| `compare:` + indented `- bad\|good\|neu Title \| step -> step -> outcome` | side-by-side vertical picture columns |
+| `style: sketch` | hand-drawn glyphs (rough.js, fixed seed, so output is identical every time) + Mynerve captions |
 | `formula: eq` | equation callout |
 | `caution: text` + indented lines | assumption / contrast callout |
 | `details: summary` + indented lines (`footer:` same) | disclosure |
@@ -63,7 +66,15 @@ Visible placeholder + script-driven load are required: a static `<script src>`, 
 | line starting with `<` | raw HTML/SVG passthrough (diagrams beyond `flow:`) |
 | any other line | paragraph |
 
-Inline: `[claim:x]` outcome · `[num:x]` decisive number · `[cond:x]` condition pill · `[neg:x]` negation pill · `[mech:x]` mechanism · `**b**` · `` `code` ``.
+Inline: `[claim:x]` outcome · `[num:x]` decisive number · `[cond:x]` condition pill · `[neg:x]` negation pill · `[mech:x]` mechanism · `[icon:name]` Phosphor duotone icon (loaded only when used) · `**b**` · `` `code` ``.
+
+Glyphs (first word of a step; anything else becomes an outcome pill): `cup:0-100|full|overflow` · `text-wall` · `picture` · `funnel` · `scale:left|right|even` · `gate:open|closed` · `stack:1-5` · `head` · `bulb` · `doc` · `db` · `user` · `clock` · `lock` · `warn` · `check` · `cross`. Leading `!`/`+` on a step sets bad/good tone. Example:
+
+```
+compare:
+  - bad Wall of text | text-wall -> cup:overflow spills -> meaning lost
+  - good Picture + few words | picture -> cup:60 fits -> meaning lands
+```
 
 ## Content rules
 
