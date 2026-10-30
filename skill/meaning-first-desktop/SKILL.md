@@ -18,7 +18,18 @@ Pick the cheapest mode that carries the meaning. Never say the same thing in car
 | :-- | :-- |
 | **text** (default) | chat, yes/no, confirmations, status, short answers (≤ 3 sentences), code, anything that is mostly prose |
 | **card** | structure carries the meaning: numbers, proportions, comparisons, tradeoffs, flows, ≥ 3 parallel items. No text after it. |
+| **picture** | the meaning is a mechanism: cause → effect, before vs after, why something happens. Use the picture-first layout below. |
 | **both** | card + text only for what a card cannot hold: a runnable `bash` block, clickable file/session/PR links, or a question the user must answer. The text holds only that. |
+
+## Picture-first layout (mechanism answers)
+
+Built for dyslexia/ADHD readers: decoding words is costly and working memory is small, so the drawing carries the idea and words only add what a drawing cannot hold.
+
+1. **Drawing:** one illustrative `<svg>` via `show_widget` (call `read_me` module `diagram` first). It shows one idea, has at most 5 labels of 5 words or fewer, uses 2 color ramps (warm = problem, cool = fix) and follows the subject's real shape, not boxes.
+2. **Card:** a DSL card right after it, containing `h1` (the answer), then at most 3 colored lines for the terms, numbers and negations the drawing cannot show, then `details:` for everything else.
+3. **No redundancy:** never repeat in the card what the drawing already shows. Saying it twice adds load instead of helping.
+
+Pick by content: a mechanism or process gets picture-first; numbers, rules or lists get a card alone; yes/no gets text. Evidence: BDA style guide 2023, Mayer's multimedia principles (coherence, redundancy) and dual coding. Bionic reading showed no speed gain (n=2,074). ADHD-specific evidence is thin, so treat this layout as a hypothesis.
 
 ## Card shape
 
