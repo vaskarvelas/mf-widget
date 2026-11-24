@@ -12,14 +12,18 @@ description: Meaning-first visual explanations for the Claude Desktop app (Code 
 
 ## Reply mode router (decide every reply)
 
-Pick the cheapest mode that carries the meaning. Never say the same thing in card and text.
+Pick the cheapest mode that carries the meaning. Never say the same thing in card and text. Length rule: a reply longer than the text limit (more than 3 sentences, headings, or more than 3 bullets) is a **card** or **both**, never long text, even when it is mostly prose.
 
 | Mode | When |
 | :-- | :-- |
-| **text** (default) | chat, yes/no, confirmations, status, short answers (≤ 3 sentences), code, anything that is mostly prose |
+| **text** (default) | ONLY short replies: ≤ 3 short sentences or ≤ 3 bullets, yes/no, confirmations, status, code. Use the text style below. |
 | **card** | structure carries the meaning: numbers, proportions, comparisons, tradeoffs, flows, ≥ 3 parallel items. No text after it. |
 | **picture** | the meaning is a mechanism: cause → effect, before vs after, why something happens. Use the picture-first layout below. |
 | **both** | card + text only for what a card cannot hold: a runnable `bash` block, clickable file/session/PR links, or a question the user must answer. The text holds only that. |
+
+## Text style (text mode)
+
+Markdown cannot color words, so emojis are the colors. Start each line or bullet with one colored marker: 🟢 outcome / done / good · 🔴 negation / failure / risk · 🟡 condition / caution / open question · 🔵 mechanism / why · 📌 decisive fact. **Bold** decisive numbers, `code` for names. One marker per line, load-bearing only; never drop negations, conditions or units.
 
 ## Picture-first layout (mechanism answers)
 
@@ -81,7 +85,7 @@ compare:
 - **Aristotle:** genus + differentia; validity ≠ truth; `ONLY IF` (necessary) vs `IF` (sufficient); expose base rates, denominators, opposing assumptions.
 - **Caveman:** zero filler. Never drop negations, conditions, units, scope limits.
 - **ADHD coloring:** tokens on 10–20% of words, load-bearing only; pair color with a symbol (`≠ → ÷ ⚠`).
-- No emoji, no uppercase, sentence case.
+- Inside cards: no emoji (use `[icon:]` and color tokens), no uppercase, sentence case. Text mode uses the emoji markers above.
 
 ## Example
 
